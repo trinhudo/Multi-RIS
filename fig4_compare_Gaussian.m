@@ -54,10 +54,6 @@ y_des = y_area_min;
 x_RIS = [7; 13; 41; 75; 93];
 y_RIS = [2; 6; 8; 4; 3];
 
-
-% x_RIS = [10; 37; 57; 69; 87]; % good for fig 2; not good for fig 7
-% y_RIS = [6; 3; 5; 7; 8];
-
 %Compute location of nodes
 pos_source = [x_source, y_source];
 pos_des = [x_des, y_des];
