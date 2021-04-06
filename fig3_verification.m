@@ -15,7 +15,7 @@ P_S_dB = -5:25; %Transmit power of the source, dBm, e.g., 200mW = 23dBm
 
 %% Plot
 
-load('./data/data_Gamma_settingL1.mat')
+load('data_Gamma_settingL1.mat')
 
 subplot(1, 4, 1);
 
@@ -62,7 +62,7 @@ set(gca, 'LooseInset', get(gca, 'TightInset')) %remove plot padding
 set(gca, 'fontsize', 13);
 
 %--------------------------------------------------------------------------
-load('./data/data_LogNormal_settingL1.mat')
+load('data_LogNormal_settingL1.mat')
 
 subplot(1, 4, 3);
 
