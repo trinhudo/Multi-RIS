@@ -1,5 +1,5 @@
 % Multi-RIS-aided Wireless Systems: Statistical Characterization and Performance Analysis
-% Tri Nhu Do, Georges Kaddoum, Thanh Luan Nguyen, Daniel Benevides da Costa, Zygmunt J. Haas
+% Tri Nhu Do, Georges Kaddoum, Thanh Luan Nguyen, Daniel Benevides da Costa, and Zygmunt J. Haas
 % https://arxiv.org/abs/2104.01912
 % Version: 2021-04-05
 
