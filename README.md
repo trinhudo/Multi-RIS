@@ -13,11 +13,10 @@ If you find that our research is interesting and our code is helpful, please cit
 
 ```
 @article{Do2021,
-archivePrefix = {arXiv},
-arxivId = {2104.01912},
 author = {Do, Tri Nhu and Kaddoum, Georges and Nguyen, Thanh Luan and da Costa, Daniel Benevides and Haas, Zygmunt J.},
 title = {Multi-{RIS}-aided Wireless Systems: Statistical Characterization and Performance Analysis},
 url = {http://arxiv.org/abs/2104.01912},
+arxivId = {2104.01912},
 year = {2021},
 month = {Apr.}
 }
