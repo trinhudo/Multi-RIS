@@ -1,4 +1,4 @@
-% This script is for RIS-aided wireless system
+% This script is for single-RIS-aided wireless system
 
 %% Simulation 
 
@@ -100,16 +100,16 @@ path_loss_g = pathloss_NLOS(d_rd) * ...
 
 h_SD = sqrt(path_loss_0) * ...
     random('Naka', m_0, Omega_0, [1, sim_times]) .* ...
-    exp(1i*rand(1, sim_times));
+    exp(1i*(-pi + (pi+pi)*rand(1, sim_times)));
 
 h_SR = sqrt(path_loss_h) .* ...
     random('Naka', m_h, Omega_h, [L, sim_times]) .* ...
-    exp(1i*rand(1, sim_times));
+    exp(1i*(-pi + (pi+pi)*rand(1, sim_times)));
 
 
 g_RD = sqrt(path_loss_g) .* ...
     random('Naka', m_g, Omega_g, [L, sim_times]) .* ...
-    exp(1i*rand(1, sim_times));
+    exp(1i*(-pi + (pi+pi)*rand(1, sim_times)));
 
 % Phase-shift configuration
 
@@ -119,7 +119,7 @@ for ss = 1:sim_times % loop over simulation trials
             angle(h_SD(ss)) - angle(h_SR(ll,ss)) - angle(g_RD(ll,ss));
         phase_shift_vector(ll) = exp(1i*phase_shift_element(ll));
     end
-    phase_shift_matrix = diag(phase_shift_vector);
+    phase_shift_matrix = kappa_nl .* diag(phase_shift_vector);
     
     % e2e channel coefficient (complex number, not magnitude)
     h_e2e(:,ss) = h_SD(:,ss) + ...
