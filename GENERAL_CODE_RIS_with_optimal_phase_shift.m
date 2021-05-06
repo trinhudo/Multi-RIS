@@ -18,7 +18,7 @@ kappa_nl = 1; % Amplitude reflection coefficient
 
 % Network area
 x_area_min = 0;
-x_area_max = 100;
+x_area_max = 100; % in meters
 y_area_min = 0;
 y_area_max = 10;
 
@@ -104,12 +104,12 @@ h_SD = sqrt(path_loss_0) * ...
 
 h_SR = sqrt(path_loss_h) .* ...
     random('Naka', m_h, Omega_h, [L, sim_times]) .* ...
-    exp(1i*(-pi + (pi+pi)*rand(1, sim_times)));
+    exp(1i*(-pi + (pi+pi)*rand(L, sim_times)));
 
 
 g_RD = sqrt(path_loss_g) .* ...
     random('Naka', m_g, Omega_g, [L, sim_times]) .* ...
-    exp(1i*(-pi + (pi+pi)*rand(1, sim_times)));
+    exp(1i*(-pi + (pi+pi)*rand(L, sim_times)));
 
 % Phase-shift configuration
 
@@ -126,7 +126,7 @@ for ss = 1:sim_times % loop over simulation trials
         h_SR(:,ss).' * phase_shift_matrix * g_RD(:,ss);
 end
 
-h_e2e_magnitude = abs(h_e2e);
+h_e2e_magnitude = abs(h_e2e); % Magnitude of the e2e channel
 h_e2e_squared  = abs(h_e2e_magnitude).^2; % Squared magnitude of the e2e channel
 
 
