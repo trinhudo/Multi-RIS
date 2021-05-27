@@ -71,7 +71,7 @@ noiseFiguredB = 10;
 sigma2dBm = -174 + 10*log10(BW) + noiseFiguredB; % -94 dBm
 sigma2 = db2pow(sigma2dBm);
 
-P_S_dB = -5:25; % Transmit power of the source, dBm, e.g., 200mW = 23dBm
+P_S_dB = -5:2:25; % Transmit power of the source, dBm, e.g., 200mW = 23dBm
 
 SNRdB = P_S_dB - sigma2dBm; % Average transmit SNR, dB = dBm - dBm
 
@@ -96,27 +96,33 @@ path_loss_h = pathloss_NLOS(d_sr) * ...
 path_loss_g = pathloss_NLOS(d_rd) * ...
     antenna_gain_RIS*L*antenna_gain_D; % RIS -> Des
 
-% Channel modeling
+% phase of channels
+phase_h_SD = 2*pi*rand(1, sim_times); % domain [0,2pi)
+phase_h_RD = 2*pi*rand(L, sim_times); % domain [0,2pi)
+phase_g_RD = 2*pi*rand(L, sim_times); % domain [0,2pi)
 
+% Channel modeling
 h_SD = sqrt(path_loss_0) * ...
     random('Naka', m_0, Omega_0, [1, sim_times]) .* ...
-    exp(1i*(-pi + (pi+pi)*rand(1, sim_times)));
+    exp(1i*phase_h_SD);
 
 h_SR = sqrt(path_loss_h) .* ...
     random('Naka', m_h, Omega_h, [L, sim_times]) .* ...
-    exp(1i*(-pi + (pi+pi)*rand(L, sim_times)));
-
+    exp(1i*phase_h_RD);
 
 g_RD = sqrt(path_loss_g) .* ...
     random('Naka', m_g, Omega_g, [L, sim_times]) .* ...
-    exp(1i*(-pi + (pi+pi)*rand(L, sim_times)));
+    exp(1i*phase_g_RD);
 
 % Phase-shift configuration
 
 for ss = 1:sim_times % loop over simulation trials
     for ll = 1:L % loop over each elements of the RIS
-        phase_shift_element(ll) = ...
-            angle(h_SD(ss)) - angle(h_SR(ll,ss)) - angle(g_RD(ll,ss));
+        % unknown domain phase-shift
+        phase_shift_element_temp(ll) = ...
+            phase_h_SD(ss) - phase_h_RD(ll,ss) - phase_g_RD(ll,ss); 
+        % convert to domain of [0, 2pi)
+        phase_shift_element = wrapTo2Pi(phase_shift_element_temp); 
         phase_shift_vector(ll) = exp(1i*phase_shift_element(ll));
     end
     phase_shift_matrix = kappa_nl .* diag(phase_shift_vector);
