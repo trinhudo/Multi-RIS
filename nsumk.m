@@ -15,6 +15,7 @@ function [m,x] = nsumk(n,k)
 %  EXAMPLES:   m = nsumk(5,2)   
 %              [~,x] = nsumk(5,2) returns a 15 x 5 matrix x in which rows sum to 2
 
+% Peter Cotton (2021). nsumk (https://www.mathworks.com/matlabcentral/fileexchange/28340-nsumk), MATLAB Central File Exchange.
 
 if isscalar(n) && isscalar(k) && nargout<=1
     m = nchoosek(k+n-1,n-1);
