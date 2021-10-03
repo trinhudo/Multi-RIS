@@ -91,6 +91,7 @@ hold off
 
 % Path-loss model
 % ---------------
+% Following: https://github.com/emilbjornson/IRS-relaying
 
 % Carrier frequency (in GHz)
 fc = 3; % GHz
