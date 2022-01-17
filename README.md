@@ -13,12 +13,13 @@ In this paper, we study the statistical characterization and modeling of distrib
 If you find that our research is interesting and our code is helpful, please cite our paper. Thank you!
 
 ```
-@article{DoTCOM2021,
-	author = {Do, Tri Nhu and Kaddoum, Georges and Nguyen, Thanh Luan and da Costa, Daniel Benevides and Haas, Zygmunt J.},
-	title = {Multi-{RIS}-aided Wireless Systems: Statistical Characterization and Performance Analysis},
-	journal = {IEEE Transactions on Communications},
-	year = {2021},
-	month = {Oct.},
-	note={{DOI}:10.1109/TCOMM.2021.3117599}
-}
+@ARTICLE{DoTCOM2021,
+	author={Do, Tri Nhu and Kaddoum, Georges and Nguyen, Thanh Luan and da Costa, Daniel Benevides and Haas, Zygmunt J.},
+	journal={IEEE Transactions on Communications}, 
+	title={Multi-{RIS}-Aided Wireless Systems: Statistical Characterization and Performance Analysis}, 
+	year={2021},
+	month={Dec.},
+	volume={69},
+	number={12},
+	pages={8641-8658}}
 ```
