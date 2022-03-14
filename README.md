@@ -8,18 +8,3 @@ In this paper, we study the statistical characterization and modeling of distrib
 ## Paper
 - [Preprint on arXiv](https://arxiv.org/abs/2104.01912)
 - [IEEExplore](https://ieeexplore.ieee.org/document/9558795)
-
-## Bibtex
-If you find that our research is interesting and our code is helpful, please cite our paper. Thank you!
-
-```
-@ARTICLE{DoTCOM2021,
-	author={Do, Tri Nhu and Kaddoum, Georges and Nguyen, Thanh Luan and da Costa, Daniel Benevides and Haas, Zygmunt J.},
-	journal={IEEE Transactions on Communications}, 
-	title={Multi-{RIS}-Aided Wireless Systems: Statistical Characterization and Performance Analysis}, 
-	year={2021},
-	month={Dec.},
-	volume={69},
-	number={12},
-	pages={8641-8658}}
-```
